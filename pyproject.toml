@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "french-verb-trainer"
+version = "1.0.0"
+description = "Trainer for French verb forms"
+requires-python = ">=3.10"
+dependencies = [] # pip-format dependencies; currently managed via requirements.txt
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 120        # maximum line length
+target-version = 'py310' # Python version: ignore syntax not available in this version
+
+[tool.ruff.format]
+quote-style = 'single'   # formatter enforces single quotes '...' instead of "..."
+
+[tool.ruff.lint]
+select = [
+    'E',   # PEP8 style errors
+    'W',   # PEP8 warnings
+    'F',   # logical errors (unused imports, undefined names)
+    'I',   # import sorting
+    'D',   # docstrings (pydocstyle rules)
+    'RUF', # Ruff-specific rules
+]
+ignore = [
+    'D100', # missing docstring in public module
+    'D101', # missing docstring in public class
+    'D102', # missing docstring in public method
+    'D103', # missing docstring in public function
+    'RUF001', 'RUF002', 'RUF003', # ambiguous characters in comments (conflict with Russian text)
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = 'pep257'    # use PEP 257 for docstrings
