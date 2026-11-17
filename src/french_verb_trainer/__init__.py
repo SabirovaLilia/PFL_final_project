@@ -1,0 +1,1 @@
+"""French verb trainer package."""
