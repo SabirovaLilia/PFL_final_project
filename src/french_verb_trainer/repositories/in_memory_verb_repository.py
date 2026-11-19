@@ -1,14 +1,9 @@
-
-"""
-Temporary in-memory verb repository.
-"""
+"""Temporary in-memory verb repository."""
 from french_verb_trainer.models.verb import Verb
 
 
 class InMemoryVerbRepository:
-    """
-    Temporary repository for storing verbs in memory.
-    """
+    """Temporary repository for storing verbs in memory."""
 
     def __init__(self) -> None:
         self._verbs = [
@@ -45,7 +40,5 @@ class InMemoryVerbRepository:
         ]
 
     def get_all(self) -> list[Verb]:
-        """
-        Return all available verbs.
-        """
+        """Return all available verbs."""
         return self._verbs

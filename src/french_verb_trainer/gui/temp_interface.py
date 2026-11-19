@@ -1,6 +1,6 @@
 """
 Console interface.
- 
+
 Interaction with the user:
 - display questions;
 - receive answers;
@@ -12,9 +12,7 @@ from french_verb_trainer.services.exercise_service import ExerciseService
 
 
 class ConsoleInterface:
-    """
-    Text-based user interface.
-    """
+    """Text-based user interface."""
 
     def __init__(
         self,
@@ -25,9 +23,7 @@ class ConsoleInterface:
         self.answer_checker = answer_checker
 
     def run(self) -> None:
-        """
-        Start the application.
-        """
+        """Start the application."""
         print("Welcome to French Verb Trainer!")
 
         while True:

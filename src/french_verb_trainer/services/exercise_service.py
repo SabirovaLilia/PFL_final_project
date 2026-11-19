@@ -1,6 +1,4 @@
-"""
-Tasks creation and assignment.
-"""
+"""Tasks creation and assignment."""
 import random
 
 from french_verb_trainer.models.exercise import Exercise
@@ -8,20 +6,14 @@ from french_verb_trainer.repositories.verb_repository import VerbRepository
 
 
 class ExerciseService:
-    """
-    Conjugation exercises generator.
-    """
+    """Conjugation exercises generator."""
 
     def __init__(self, repository: VerbRepository) -> None:
-        """
-        Initialize the service with a verb repository.
-        """
+        """Initialize the service with a verb repository."""
         self.repository = repository
 
     def generate_exercise(self) -> Exercise:
-        """
-        Create a random conjugation exercise.
-        """
+        """Create a random conjugation exercise."""
         verbs = self.repository.get_all()
 
         if not verbs:
