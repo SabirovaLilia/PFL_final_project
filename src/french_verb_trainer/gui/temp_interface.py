@@ -7,6 +7,7 @@ Interaction with the user:
 - show the test result;
 - manage a simple exercise execution cycle.
 """
+
 from french_verb_trainer.services.answer_checker import AnswerChecker
 from french_verb_trainer.services.exercise_service import ExerciseService
 
@@ -25,17 +26,17 @@ class ConsoleInterface:
 
     def run(self) -> None:
         """Start the application."""
-        print("Welcome to French Verb Trainer!")
+        print('Welcome to French Verb Trainer!')
 
         while True:
             exercise = self.exercise_service.generate_exercise()
 
-            print(f"\n{exercise.question}")
+            print(f'\n{exercise.question}')
 
             user_answer = input("Your answer (or 'q' to quit): ")
 
-            if user_answer.lower().strip() == "q":
-                print("Goodbye!")
+            if user_answer.lower().strip() == 'q':
+                print('Goodbye!')
                 break
 
             is_correct = self.answer_checker.check(
@@ -44,9 +45,6 @@ class ConsoleInterface:
             )
 
             if is_correct:
-                print("Correct!")
+                print('Correct!')
             else:
-                print(
-                    f"Incorrect. Correct answer: "
-                    f"{exercise.correct_answer}"
-                )
+                print(f'Incorrect. Correct answer: {exercise.correct_answer}')

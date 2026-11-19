@@ -1,4 +1,5 @@
 """Tasks creation and assignment."""
+
 import random
 
 from french_verb_trainer.models.exercise import Exercise
@@ -17,14 +18,12 @@ class ExerciseService:
         verbs = self.repository.get_all()
 
         if not verbs:
-            raise ValueError("No verbs available.")
+            raise ValueError('No verbs available.')
 
         verb = random.choice(verbs)
 
         if not verb.conjugations:
-            raise ValueError(
-            f"No conjugations available for {verb.infinitive}."
-            )
+            raise ValueError(f'No conjugations available for {verb.infinitive}.')
 
         tense = random.choice(list(verb.conjugations.keys()))
         subject = random.choice(list(verb.conjugations[tense].keys()))

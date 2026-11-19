@@ -1,4 +1,5 @@
 """Temporary in-memory verb repository."""
+
 from french_verb_trainer.models.verb import Verb
 
 

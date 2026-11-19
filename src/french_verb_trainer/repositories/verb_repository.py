@@ -1,4 +1,5 @@
 """Verb repository interface."""
+
 from typing import Protocol
 
 from french_verb_trainer.models.verb import Verb

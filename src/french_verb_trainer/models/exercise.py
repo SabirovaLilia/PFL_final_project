@@ -11,6 +11,7 @@ For question example, "Conjugate parler in Présent for nous", where:
 
 The correct answer for the example is "parlons".
 """
+
 from dataclasses import dataclass
 
 from french_verb_trainer.models.verb import Verb
@@ -27,10 +28,7 @@ class Exercise:
     @property
     def question(self) -> str:
         """Build a human-readable exercise question."""
-        return (
-            f"Conjugate '{self.verb.infinitive}' "
-            f"in {self.tense} for '{self.subject}'."
-        )
+        return f"Conjugate '{self.verb.infinitive}' in {self.tense} for '{self.subject}'."
 
     @property
     def correct_answer(self) -> str:
