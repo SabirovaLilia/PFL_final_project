@@ -6,6 +6,7 @@ class InMemoryVerbRepository:
     """Temporary repository for storing verbs in memory."""
 
     def __init__(self) -> None:
+        """Initialize the repository with sample verb data."""
         self._verbs = [
             Verb(
                 infinitive='parler',

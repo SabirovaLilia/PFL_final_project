@@ -1,7 +1,6 @@
 """Entry point for the trainer."""
 from french_verb_trainer.gui.temp_interface import ConsoleInterface
-from french_verb_trainer.repositories.in_memory_verb_repository import \
-    InMemoryVerbRepository
+from french_verb_trainer.repositories.in_memory_verb_repository import InMemoryVerbRepository
 from french_verb_trainer.services.answer_checker import AnswerChecker
 from french_verb_trainer.services.exercise_service import ExerciseService
 

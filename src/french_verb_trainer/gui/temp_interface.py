@@ -19,6 +19,7 @@ class ConsoleInterface:
         exercise_service: ExerciseService,
         answer_checker: AnswerChecker,
     ) -> None:
+        """Initialize the console interface with the required services."""
         self.exercise_service = exercise_service
         self.answer_checker = answer_checker
 
