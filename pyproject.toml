@@ -6,7 +6,8 @@ build-backend = "setuptools.build_meta"
 name = "french-verb-trainer"
 version = "1.0.0"
 description = "Trainer for French verb forms"
-requires-python = ">=3.10"
+
+requires-python = ">=3.13"
 dependencies = [
     "requests>=2.34.2",
 ] # pip-format dependencies; currently managed via requirements.txt
@@ -16,7 +17,7 @@ where = ["src"]
 
 [tool.ruff]
 line-length = 120        # maximum line length
-target-version = 'py310' # Python version: ignore syntax not available in this version
+target-version = 'py313' # Python version: ignore syntax not available in this version
 
 [tool.ruff.format]
 quote-style = 'single'   # formatter enforces single quotes '...' instead of "..."
@@ -40,3 +41,9 @@ ignore = [
 
 [tool.ruff.lint.pydocstyle]
 convention = 'pep257'    # use PEP 257 for docstrings
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<10",
+    "ruff==0.17.5",
+]
