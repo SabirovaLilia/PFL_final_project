@@ -22,15 +22,16 @@ class Exercise:
     """Conjugation exercise representation."""
 
     verb: Verb
+    voice: str
     tense: str
     subject: str
 
     @property
     def question(self) -> str:
         """Build a human-readable exercise question."""
-        return f"Conjugate '{self.verb.infinitive}' in {self.tense} for '{self.subject}'."
+        return f"Conjugate '{self.verb.infinitive}' in {self.tense} ({self.voice}) for '{self.subject}'."
 
     @property
     def correct_answer(self) -> str:
         """Return the expected answer."""
-        return self.verb.get_form(self.tense, self.subject)
+        return self.verb.get_form(self.voice, self.tense, self.subject)
