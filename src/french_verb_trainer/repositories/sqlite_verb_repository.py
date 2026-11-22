@@ -42,7 +42,7 @@ class SqliteVerbRepository(VerbRepository):
     def __init__(self, db_path: Path | None = None) -> None:
         """Initialize the repository."""
         if db_path is None:
-            self._db_path = Path("data/verbs.db")
+            self._db_path = Path('data/verbs.db')
         else:
             self._db_path = db_path
 
@@ -67,8 +67,7 @@ class SqliteVerbRepository(VerbRepository):
 
     def _load_conjugations(self, cursor: sqlite3.Cursor, verb_id: int) -> dict[str, dict[str, str]]:
         cursor.execute(
-            'SELECT voix, mode, temps, personne, conjugaison '
-            'FROM conjugaisons WHERE verbe_id = ?',
+            'SELECT voix, mode, temps, personne, conjugaison FROM conjugaisons WHERE verbe_id = ?',
             (verb_id,),
         )
         result = {}
@@ -86,7 +85,7 @@ class SqliteVerbRepository(VerbRepository):
             if time_name not in result[normalized_voice]:
                 result[normalized_voice][time_name] = {}
 
-            person_key = personne.split(";")[0]
+            person_key = personne.split(';')[0]
             subject = PERSON_MAP.get(person_key)
             if subject:
                 result[normalized_voice][time_name][subject] = form

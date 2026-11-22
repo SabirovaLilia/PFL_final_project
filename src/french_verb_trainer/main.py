@@ -9,7 +9,7 @@ from french_verb_trainer.services.exercise_service import ExerciseService
 
 
 def main() -> None:
-    db_path = Path(__file__).parent.parent.parent / "data" / "verbs.db"
+    db_path = Path(__file__).parent.parent.parent / 'data' / 'verbs.db'
     repository = SqliteVerbRepository(db_path)
     exercise_service = ExerciseService(repository)
     answer_checker = AnswerChecker()
