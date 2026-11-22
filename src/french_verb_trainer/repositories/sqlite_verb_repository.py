@@ -40,7 +40,7 @@ class SqliteVerbRepository(VerbRepository):
     """Interface for accessing verb data."""
 
     def __init__(self, db_path: Path | None = None) -> None:
-        """Initialize the repository"""
+        """Initialize the repository."""
         if db_path is None:
             self._db_path = Path("data/verbs.db")
         else:
