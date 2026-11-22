@@ -25,11 +25,13 @@ class ExerciseService:
         if not verb.conjugations:
             raise ValueError(f'No conjugations available for {verb.infinitive}.')
 
-        tense = random.choice(list(verb.conjugations.keys()))
-        subject = random.choice(list(verb.conjugations[tense].keys()))
+        voice = random.choice(list(verb.conjugations.keys()))
+        tense = random.choice(list(verb.conjugations[voice].keys()))
+        subject = random.choice(list(verb.conjugations[voice][tense].keys()))
 
         return Exercise(
             verb=verb,
+            voice=voice,
             tense=tense,
             subject=subject,
         )
