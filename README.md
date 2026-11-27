@@ -48,6 +48,20 @@ Enter, or `q` to quit.
 uv run pytest
 ```
 
+## Pre-commit
+
+Pre-commit runs code checks automatically before each commit: Ruff lint and
+format, pytest, and basic file hygiene (trailing whitespace, end of files,
+yaml/toml validity, merge conflict markers, private keys).
+
+After cloning the repository, run:
+
+```bash
+uv tool install pre-commit==4.7.0
+pre-commit install
+pre-commit run --all-files
+```
+
 ## Architecture
 
 The application follows a layered architecture: Interface (package `gui`,
