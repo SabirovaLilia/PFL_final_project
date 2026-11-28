@@ -1,15 +1,11 @@
-"""
-Console interface.
 
-Interaction with the user:
-- display questions;
-- receive answers;
-- show the test result;
-- manage a simple exercise execution cycle.
-"""
+import logging
 
 from french_verb_trainer.services.answer_checker import AnswerChecker
 from french_verb_trainer.services.exercise_service import ExerciseService
+
+
+logger = logging.getLogger(__name__)
 
 
 class ConsoleInterface:
@@ -26,16 +22,19 @@ class ConsoleInterface:
 
     def run(self) -> None:
         """Start the application."""
+        logger.info('Training session started.')
         print('Welcome to French Verb Trainer!')
 
         while True:
             exercise = self.exercise_service.generate_exercise()
+            logger.debug('New exercise generated.')
 
             print(f'\n{exercise.question}')
 
             user_answer = input("Your answer (or 'q' to quit): ")
 
             if user_answer.lower().strip() == 'q':
+                logger.info('Training session ended by user.')
                 print('Goodbye!')
                 break
 
@@ -45,6 +44,8 @@ class ConsoleInterface:
             )
 
             if is_correct:
+                logger.info('User submitted a correct answer.')
                 print('Correct!')
             else:
+                logger.info('User submitted an incorrect answer.')
                 print(f'Incorrect. Correct answer: {exercise.correct_answer}')

@@ -65,7 +65,7 @@ class SqliteVerbRepository(VerbRepository):
         conn.close()
         return verbs
 
-    def _load_conjugations(self, cursor: sqlite3.Cursor, verb_id: int) -> dict[str, dict[str, str]]:
+    def _load_conjugations(self, cursor: sqlite3.Cursor, verb_id: int) -> dict[str, dict[str, dict[str, str]]]:
         cursor.execute(
             'SELECT voix, mode, temps, personne, conjugaison FROM conjugaisons WHERE verbe_id = ?',
             (verb_id,),
