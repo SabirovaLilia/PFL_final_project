@@ -22,4 +22,4 @@ check:
 	uv run --group test pytest
 
 run:
-	uv run python src/french_verb_trainer/main.py
+	uv run python -m french_verb_trainer.main
