@@ -1,3 +1,4 @@
+
 """Tasks creation and assignment."""
 
 import random
@@ -15,15 +16,16 @@ class ExerciseService:
 
     def generate_exercise(self) -> Exercise:
         """Create a random conjugation exercise."""
-        verbs = self.repository.get_all()
+        verbs = [
+            verb
+            for verb in self.repository.get_all()
+            if verb.conjugations
+        ]
 
         if not verbs:
-            raise ValueError('No verbs available.')
+            raise ValueError('No verbs with conjugations available.')
 
         verb = random.choice(verbs)
-
-        if not verb.conjugations:
-            raise ValueError(f'No conjugations available for {verb.infinitive}.')
 
         voice = random.choice(list(verb.conjugations.keys()))
         tense = random.choice(list(verb.conjugations[voice].keys()))
